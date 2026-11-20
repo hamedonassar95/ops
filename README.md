@@ -1,4 +1,10 @@
 # 🚀 Devobs Enterprise Console & SRE Command Center
+
+## Local Graphify index (opt-in, offline)
+
+A read-only local code index for this repository is documented in
+[docs/graphify-local.md](docs/graphify-local.md). No source is uploaded and no
+CI, deployment or permission setting is changed.
 ### منظومة رصد وإدارة البنية التحتية، الخوادم، والعمليات السحابية الذكية
 
 [![CI Build](https://github.com/hamedonassar95/Devobs/actions/workflows/ci.yml/badge.svg)](https://github.com/hamedonassar95/Devobs/actions)
