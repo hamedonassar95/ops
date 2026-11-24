@@ -1,5 +1,11 @@
 # 🚀 Devobs Enterprise Console & SRE Command Center
 
+## CI package-manager compatibility
+
+This legacy `ops` source repository uses the checked-in `bun.lock` (Bun lockfile v2), not an npm package lock. The CI workflow therefore installs **Bun 1.4.5** using a full-SHA pinned setup action and runs `bun install --frozen-lockfile`, `bun run test`, `bun run lint`, and `bun run build`. Node.js is pinned to `24.22.1`, the GitHub Actions runner to `ubuntu-24.04`, and workflow permissions to `contents: read`.
+
+This is a test/build repair only. Its purpose is to make `ops` CI results reliable for the existing read-only [Devobs repository status panel](https://github.com/hamedonassar95/Devobs/blob/main/apps/ai-intelligence-console/README.md). It does **not** activate a public console, Firebase, Gemini, Google Workspace, or `repository_dispatch`; do not interpret a green CI run as approval to dispatch events, grant tokens, merge, or deploy. The legacy dispatch workflow remains unchanged and needs independent security review before any future activation. Relevant references: [Bun installation](https://bun.sh/docs/pm/cli/install) and [GitHub Actions setup-bun](https://github.com/oven-sh/setup-bun/tree/v2.2.0).
+
 ## Local Graphify index (opt-in, offline)
 
 A read-only local code index for this repository is documented in
