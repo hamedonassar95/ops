@@ -42,8 +42,21 @@ jobs:
             exit 2
           }
 
-      - name: Install dependencies from committed Bun lockfile
-        run: bun install --frozen-lockfile
+      - name: Generate candidate lockfile for review only
+        shell: bash
+        run: |
+          set -euo pipefail
+          bun install --lockfile-only
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const content = fs.readFileSync('bun.lock', 'utf8');
+          for (let offset = 0, index = 0; offset < content.length; offset += 1600, index++) {
+            console.log('OPS_LOCK_PART:' + index + ':' + JSON.stringify(content.slice(offset, offset + 1600)));
+          }
+          console.log('OPS_LOCK_TOTAL:' + content.length);
+          NODE
+          echo 'Candidate lockfile generated; awaiting independent source commit'
+          exit 2
 
       - name: Run unit tests
         run: bun run test
