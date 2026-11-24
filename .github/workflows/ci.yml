@@ -2,7 +2,7 @@ name: Devobs AI Intelligence CI
 
 on:
   push:
-    branches: [main, dev, feature/repair-bun-lockfile-consistency]
+    branches: [main, dev]
   pull_request:
     branches: [main]
 
