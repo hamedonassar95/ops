@@ -1,8 +1,8 @@
 import React from 'react';
-import { Sun, Moon, Cpu, Sparkles, RefreshCw, Cloud, Mail, MessageSquare, CheckCircle2, Box, Bot, Video, FileText, FileSpreadsheet, BookOpen, Presentation, CheckSquare, Gamepad2, Calendar, FolderGit2 } from 'lucide-react';
+import { Sun, Moon, Cpu, Sparkles, RefreshCw, Cloud, Mail, MessageSquare, CheckCircle2, Box, Bot, Video, FileText, FileSpreadsheet, BookOpen, Presentation, CheckSquare, Gamepad2, Calendar, FolderGit2, Users } from 'lucide-react';
 import { User } from 'firebase/auth';
 
-export type DashboardTab = 'overview' | 'github' | 'servers' | 'incidents' | 'deployments' | '3d_room' | 'cyber_game' | 'gemini_chat' | 'media_studio' | 'drive' | 'docs' | 'sheets' | 'slides' | 'tasks' | 'calendar' | 'forms' | 'gmail' | 'chat' | 'keep';
+export type DashboardTab = 'overview' | 'github' | 'servers' | 'incidents' | 'deployments' | '3d_room' | 'cyber_game' | 'gemini_chat' | 'media_studio' | 'drive' | 'docs' | 'sheets' | 'slides' | 'tasks' | 'calendar' | 'forms' | 'gmail' | 'chat' | 'keep' | 'contacts';
 
 interface DashboardHeaderProps {
   isDarkMode: boolean;
@@ -211,6 +211,15 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           >
             <BookOpen className="w-3.5 h-3.5 text-amber-400" />
             <span>Keep</span>
+          </button>
+          <button
+            onClick={() => onTabChange('contacts')}
+            className={`transition-colors whitespace-nowrap shrink-0 hover:text-white flex items-center gap-1 ${
+              activeTab === 'contacts' ? 'text-indigo-400 font-bold border-b-2 border-indigo-500 pb-1' : ''
+            }`}
+          >
+            <Users className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Contacts</span>
           </button>
         </nav>
 

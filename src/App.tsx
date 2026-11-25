@@ -41,6 +41,7 @@ import { SlidesTab } from './components/workspace/SlidesTab';
 import { TasksTab } from './components/workspace/TasksTab';
 import { CalendarTab } from './components/workspace/CalendarTab';
 import { KeepTab } from './components/workspace/KeepTab';
+import { ContactsTab } from './components/workspace/ContactsTab';
 import { GitHubTab } from './components/github/GitHubTab';
 import {
   Server as ServerIcon,
@@ -1133,6 +1134,11 @@ export default function App() {
         {/* Tab 10: Keep Runbooks & Notes */}
         {activeTab === 'keep' && (
           <KeepTab user={user} token={token} />
+        )}
+
+        {/* Tab 11: Contacts & SRE Directory */}
+        {activeTab === 'contacts' && (
+          <ContactsTab token={token} onSignInClick={handleSignInClick} />
         )}
       </main>
 
